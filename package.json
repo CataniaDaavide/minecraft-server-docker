@@ -1,0 +1,12 @@
+{
+  "name": "minecraft-server-docker",
+  "version": "1.0.0",
+  "description": "server mincraft realizzato tramite docker container",
+  "license": "ISC",
+  "author": "davide_catania",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

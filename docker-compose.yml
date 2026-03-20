@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  minecraft:
+    build: .
+    container_name: minecraft-server
+    ports:
+      - "25565:25565"
+
+    environment:
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      VERSION: "LATEST"
+      TYPE: "PAPER"
+
+    volumes:
+      - ./data:/data
+
+    restart: unless-stopped
