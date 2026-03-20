@@ -37,19 +37,14 @@ plugins/
 Questo Dockerfile estende l'immagine base e copia automaticamente i plugin.
 
 ```Dockerfile
-# Usa immagine ufficiale Minecraft Docker
 FROM itzg/minecraft-server
 
-# Copia i plugin dentro il container
 COPY plugins /plugins
-
-# (opzionale) puoi aggiungere config custom qui
-# COPY config /config
 ```
 
 ---
 
-# ⚙️ 4. docker-compose.yml (consigliato)
+# ⚙️ 4. docker-compose.yml
 
 ```yaml
 version: "3.8"
@@ -77,109 +72,60 @@ services:
 
 # 🚀 5. Avvio server
 
-Nel terminale:
-
-```
+```bash
 docker compose up -d --build
 ```
 
 ---
 
-# 📊 6. Controllo log
+# 📊 6. Log server
 
-```
+```bash
 docker logs -f minecraft-server
 ```
 
-Devi vedere:
-
-```
-Done (...)! For help, type "help"
-```
-
 ---
 
-# 🎮 7. Accesso al server
-
-Apri Minecraft → Multiplayer → Aggiungi server
+# 🎮 7. Accesso
 
 IP:
-
-```
 localhost
-```
 
 ---
 
-# 🔐 8. Come funziona AuthMe
+# 🔥 8. Firewall Windows
 
-Al primo accesso:
+## IN INGRESSO (Inbound)
+- TCP 25565 → Consenti
+- UDP 25565 → Consenti
 
-```
-/register password password
-```
+## IN USCITA (Outbound)
+- TCP 25565 → Consenti (Consenti connessioni)
+- UDP 25565 → Consenti (Consenti connessioni)
 
-Accessi successivi:
+---
 
-```
-/login password
-```
+# 🔐 9. AuthMe
+
+/`register password password`
+/`login password`
 
 ---
 
 # ⚠️ Sicurezza
 
-Con ONLINE_MODE=FALSE:
-
-- Chiunque può entrare
-- Possono impersonare altri utenti
-
-👉 AuthMe è OBBLIGATORIO
+ONLINE_MODE=FALSE permette accesso libero.
 
 ---
 
 # 💡 Comandi utili
 
-Stop:
-
-```
 docker compose down
-```
-
-Restart:
-
-```
 docker compose restart
-```
 
 ---
 
-# 📁 Backup mondo
+# 📁 Backup
 
-I dati sono salvati in:
-
-```
+Cartella:
 ./data
-```
-
-Fai backup copiando quella cartella.
-
----
-
-# 🚀 Miglioramenti futuri
-
-- Port forwarding per amici
-- Plugin extra (/home, /spawn)
-- Backup automatici
-
----
-
-# ✅ Fine
-
-Server pronto con:
-
-✔ Docker
-✔ Ultima versione Minecraft
-✔ Modalità cracked
-✔ Sistema login sicuro
-
