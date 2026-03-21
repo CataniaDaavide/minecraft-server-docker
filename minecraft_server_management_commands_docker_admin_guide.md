@@ -1,12 +1,13 @@
 # 🐳 Minecraft Server Management Guide (Docker + Admin Commands)
 
 Guida rapida ai comandi più usati per gestire un server Minecraft avviato con Docker.
+```
+docker exec -it minecraft-server rcon-cli
+```
 
 ---
 
 # 👑 1. Come ottenere OP (Admin)
-
-ℹ️ **Tutti i comandi del server possono essere eseguiti tramite la console Docker (rcon-cli), che è il metodo consigliato per la gestione completa.**
 
 ## Metodo 1 — In game
 
