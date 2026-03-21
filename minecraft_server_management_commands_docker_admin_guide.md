@@ -6,25 +6,15 @@ Guida rapida ai comandi più usati per gestire un server Minecraft avviato con D
 
 # 👑 1. Come ottenere OP (Admin)
 
+ℹ️ **Tutti i comandi del server possono essere eseguiti tramite la console Docker (rcon-cli), che è il metodo consigliato per la gestione completa.**
+
 ## Metodo 1 — In game
 
 ```
 /op NomeGiocatore
 ```
 
-## Metodo 2 — Console Docker (consigliato)
-
-```
-docker exec -it minecraft-server rcon-cli
-```
-
-Poi:
-
-```
-op NomeGiocatore
-```
-
-## Metodo 3 — Automatico all’avvio
+## Metodo 2 — Automatico all’avvio
 
 Nel comando Docker o docker-compose:
 
@@ -50,6 +40,34 @@ Con modalità offline:
 /whitelist remove Nome
 /whitelist list
 ```
+
+---
+
+## 🔑 2.1 AuthMe (Reset password e sicurezza login)
+
+Se usi il plugin **AuthMeReloaded**, puoi gestire le password degli utenti.
+
+### 🔄 Resettare password utente
+```
+/authme changepassword NomeGiocatore nuova_password
+```
+
+👉 Permette di cambiare la password senza conoscere quella vecchia.
+
+### 🆕 Forzare nuova registrazione
+```
+/authme unregister NomeGiocatore
+```
+
+### ➕ Registrare manualmente un utente
+```
+/authme register NomeGiocatore password
+```
+
+📌 Nota:
+- Serve permesso admin (`authme.admin.*`)
+- Utile soprattutto in modalità offline mode
+- Consigliato combinare con whitelist
 
 ---
 
