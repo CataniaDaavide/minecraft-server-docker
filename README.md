@@ -67,6 +67,16 @@ services:
 
     restart: unless-stopped
 ```
+---
+
+# 🧠 4.1 Configurazione RAM
+Puoi configurare quanta RAM usare per il server Minecraft modificando le variabili:
+
+```bash
+environment:
+  INIT_MEMORY: "2G"
+  MAX_MEMORY: "6G"
+```
 
 ---
 
